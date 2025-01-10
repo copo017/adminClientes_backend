@@ -12,7 +12,7 @@ WORKDIR /app
 COPY . /app
 
 # Da permisos al archivo mvnw
-# RUN chmod +x mvnw
+RUN chmod +x mvnw
 
 # Construye el proyecto usando Maven
 RUN ./mvnw clean package
