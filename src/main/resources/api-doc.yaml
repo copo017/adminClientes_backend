@@ -1,0 +1,170 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+  - url: http://localhost:8079
+    description: Generated server url
+paths:
+  /api/clientes/{id}:
+    get:
+      tags:
+        - cliente-controller
+      operationId: obtenerCliente
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Cliente'
+    put:
+      tags:
+        - cliente-controller
+      operationId: actualizarCliente
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cliente'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Cliente'
+    delete:
+      tags:
+        - cliente-controller
+      operationId: eliminarCliente
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+  /api/clientes:
+    get:
+      tags:
+        - cliente-controller
+      operationId: listarClientes
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Cliente'
+    post:
+      tags:
+        - cliente-controller
+      operationId: crearCliente
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Cliente'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Cliente'
+  /api/auth/login:
+    post:
+      tags:
+        - auth-controller
+      operationId: login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+  /**:
+    options:
+      tags:
+        - cors-controller
+      operationId: handleOptions
+      responses:
+        '200':
+          description: OK
+  /api/weather:
+    get:
+      tags:
+        - weather-controller
+      operationId: getWeather
+      parameters:
+        - name: city
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+components:
+  schemas:
+    Cliente:
+      type: object
+      properties:
+        idCliente:
+          type: integer
+          format: int64
+        nombre:
+          type: string
+        email:
+          type: string
+        telefono:
+          type: string
+        direccion:
+          type: string
+        fechaRegistro:
+          type: string
+          format: date-time
+    AuthRequest:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
