@@ -8,7 +8,10 @@ WORKDIR /app
 COPY . /app
 
 # Da permisos al archivo mvnw (si usas Maven Wrapper)
-RUN chmod +x mvnw
+# RUN chmod +x mvnw
+
+# Configura JAVA_HOME explícitamente (opcional)
+ENV JAVA_HOME=/usr/lib/jvm/java-21-openjdk
 
 # Construye el proyecto usando Maven
 RUN ./mvnw clean package
