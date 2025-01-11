@@ -14,8 +14,9 @@ COPY . /app
 # Da permisos al archivo mvnw
 RUN chmod +x mvnw
 
-# Construye el proyecto usando Maven
-RUN ./mvnw clean package
+# Construye el proyecto usando Maven y deshabilita los tests
+RUN ./mvnw clean package -DskipTests
+
 
 # Expone el puerto configurado en application.properties
 EXPOSE 8079

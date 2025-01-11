@@ -3,7 +3,7 @@ info:
   title: OpenAPI definition
   version: v0
 servers:
-  - url: http://localhost:8079
+  - url: https://adminclientes-backend-ss36.onrender.com
     description: Generated server url
 paths:
   /api/clientes/{id}:
