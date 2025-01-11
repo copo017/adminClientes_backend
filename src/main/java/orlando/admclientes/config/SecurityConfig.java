@@ -35,6 +35,7 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.addAllowedOrigin("http://localhost:3000"); // Permitir solicitudes del frontend
+        configuration.addAllowedOrigin("https://adminclientes-front.onrender.com"); // Permitir solicitudes desde el frontend en producción
         configuration.addAllowedMethod("*"); // Permitir todos los métodos (GET, POST, OPTIONS, etc.)
         configuration.addAllowedHeader("*"); // Permitir todos los encabezados
         configuration.setAllowCredentials(true); // Permitir credenciales
