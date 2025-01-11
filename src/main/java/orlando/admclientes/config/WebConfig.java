@@ -14,6 +14,7 @@ public class WebConfig implements WebMvcConfigurer {
                 .allowedOrigins("http://localhost:3000", "https://adminclientes-front.onrender.com") // Dominio del frontend
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Métodos permitidos
                 .allowedHeaders("*") // Permitir todos los encabezados
+                .exposedHeaders("Authorization") // Exponer encabezados específicos si es necesario
                 .allowCredentials(true); // Permitir cookies o credenciales
     }
 
