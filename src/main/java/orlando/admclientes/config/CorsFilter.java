@@ -25,7 +25,10 @@ public class CorsFilter implements Filter {
         String origin = httpServletRequest.getHeader("Origin");
 
         // Configura dinámicamente el encabezado Access-Control-Allow-Origin
-        if (origin != null && (origin.equals("http://localhost:3000") || origin.equals("https://adminclientes-front.onrender.com"))) {
+        if (origin != null && (origin.equals("http://localhost:3000") ||
+                origin.equals("https://adminclientes-front.onrender.com") ||
+                origin.equals("https://relaxed-cascaron-ec2b28.netlify.app")
+        )) {
             httpServletResponse.setHeader("Access-Control-Allow-Origin", origin);
         }
 
