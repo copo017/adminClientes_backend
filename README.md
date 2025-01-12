@@ -65,6 +65,8 @@ aplicación, que incluye el backend, la base de datos, y el frontend.
 
 Imagen completa subida en i.postimg.cc [Diagrama UML](https://i.postimg.cc/wv7zsGtc/Diagrama.png).
 
+## Operaciones API consultar SWAGGER dentro de la carpeta resources 'api-doc.yaml' o visitar [SwaggerHub](https://app.swaggerhub.com/apis/SEBASTIANORELLANA017/public_api_clientes_clima/v3)
+
 # Produccion:
 
 - https://relaxed-cascaron-ec2b28.netlify.app       <-- usar esta url productiva
